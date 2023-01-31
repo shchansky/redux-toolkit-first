@@ -14,7 +14,7 @@ function App() {
       <h1>{count}</h1>
       <button
         onClick={() => {
-          dispatch(increment);
+          dispatch(increment(10));
         }}
       >
         Increment
