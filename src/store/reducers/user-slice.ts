@@ -1,3 +1,4 @@
+import { fetchUsers } from "store/reducers/action-creators";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { IUser } from "models";
 
@@ -23,17 +24,36 @@ export const userSlice = createSlice({
       state.count += action.payload;
     },
 
-    usersFetching(state) {
+    /** Альтернатива полю extraReducers(необходимо экшен fetchUsers оборачивать dispatch) */
+    // usersFetching(state) {
+    //   state.isLoading = true;
+    // },
+
+    // usersFetchingSuccess(state, action: PayloadAction<IUser[]>) {
+    //   state.isLoading = false;
+    //   state.error = "";
+    //   state.users = action.payload;
+    // },
+
+    // usersFetchingError(state, action: PayloadAction<string>) {
+    //   state.isLoading = false;
+    //   state.error = action.payload;
+    // },
+  },
+
+  /** экшен fetchUsers обернут createAsyncThunk  */
+  extraReducers: {
+    [fetchUsers.pending.type]: (state) => {
       state.isLoading = true;
     },
 
-    usersFetchingSuccess(state, action: PayloadAction<IUser[]>) {
+    [fetchUsers.fulfilled.type]: (state, action: PayloadAction<IUser[]>) => {
       state.isLoading = false;
       state.error = "";
       state.users = action.payload;
     },
 
-    usersFetchingError(state, action: PayloadAction<string>) {
+    [fetchUsers.rejected.type]: (state, action: PayloadAction<string>) => {
       state.isLoading = false;
       state.error = action.payload;
     },
