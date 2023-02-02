@@ -28,12 +28,11 @@ export const fetchUsers = createAsyncThunk(
   "user/fetchAll",
   async (_, thunkApi) => {
     try {
-      const response = await axios.get<IUser[]>(
-        "https://jsonplaceholder.typicode.com/users"
-      );
+      const response = await axios.get<IUser[]>("https://jsonplaceholder.typicode.com/usersssss");
       return response.data;
     } catch (err) {
-      thunkApi.rejectWithValue("Не удалось загрузить порльзователей");
+      alert(err);
+      return thunkApi.rejectWithValue("Не удалось загрузить пользователей");
     }
   }
 );
