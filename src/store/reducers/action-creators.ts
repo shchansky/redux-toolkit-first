@@ -27,9 +27,13 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 export const fetchUsers = createAsyncThunk(
   "user/fetchAll",
   async (_, thunkApi) => {
-    const response = await axios.get<IUser[]>(
-      "https://jsonplaceholder.typicode.com/users"
-    );
-    return response.data;
+    try {
+      const response = await axios.get<IUser[]>(
+        "https://jsonplaceholder.typicode.com/users"
+      );
+      return response.data;
+    } catch (err) {
+      thunkApi.rejectWithValue("Не удалось загрузить порльзователей");
+    }
   }
 );
