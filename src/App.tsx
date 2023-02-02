@@ -5,7 +5,7 @@ import { userSlice } from "store/reducers/user-slice";
 import { fetchUsers } from "store/reducers/action-creators";
 
 function App() {
-  const { count, users, error } = useAppSelector(
+  const { count, users, error, isLoading } = useAppSelector(
     (state: RootSate) => state.useReducer
   );
 
@@ -30,7 +30,9 @@ function App() {
       </div>
       <hr />
       <h3>Users</h3>
-      <div>{JSON.stringify(users, null, 2)}</div>
+      <div>
+        {isLoading ? "Идет загрузка..." : JSON.stringify(users, null, 2)}
+      </div>
       <div>{error}</div>
     </>
   );
