@@ -29,7 +29,7 @@ function App() {
         </button>
       </div>
       <hr />
-      <h3>Users</h3>
+      <h3>Users with no thunk</h3>
       <div>
         {isLoading ? "Идет загрузка..." : JSON.stringify(users, null, 2)}
       </div>
