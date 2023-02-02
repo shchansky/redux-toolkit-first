@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "hooks/redux";
 import { RootSate } from "store/store";
 import { userSlice } from "store/reducers/user-slice";
 import { fetchUsers } from "store/reducers/action-creators";
+import { PostContainer } from "components";
 
 function App() {
   const { count, users, error, isLoading } = useAppSelector(
@@ -36,6 +37,9 @@ function App() {
       <div style={{ paddingTop: "30px" }}>
         {error.length ? error : "Ошибки нет"}
       </div>
+      <hr />
+      <h3>Posts with RTK Qerry</h3>
+      <PostContainer />
     </>
   );
 }

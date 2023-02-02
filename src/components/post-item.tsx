@@ -11,6 +11,7 @@ export const PostItem = (props: Props) => {
   return (
     <div>
       {post.id} {post.title}
+      <button>Удалить пост</button>
     </div>
   );
 };

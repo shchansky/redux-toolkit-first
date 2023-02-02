@@ -8,9 +8,8 @@ export const PostContainer = () => {
 
   return (
     <div>
-      {posts?.map((post, index) => (
-        <PostItem post={post}  />
-      ))}
+      {posts &&
+        posts.map((post, index) => <PostItem post={post} key={post.id} />)}
     </div>
   );
 };
