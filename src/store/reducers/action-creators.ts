@@ -4,7 +4,7 @@ import { IUser } from "models";
 import { AppDispatch } from "store/store";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-/** Рабочий вариант с dispatch (благодаря dispatch, redux узнает какие данные и куда ему помещать)*/
+/** Рабочий вариант с dispatch (благодаря dispatch, redux узнает какие данные и куда ему помещать в userSlice)*/
 // export const fetchUsers = () => async (dispatch: AppDispatch) => {
 //   try {
 //     dispatch(userSlice.actions.usersFetching());
