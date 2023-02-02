@@ -33,7 +33,9 @@ function App() {
       <div>
         {isLoading ? "Идет загрузка..." : JSON.stringify(users, null, 2)}
       </div>
-      <div>{error}</div>
+      <div style={{ paddingTop: "30px" }}>
+        {error.length ? error : "Ошибки нет"}
+      </div>
     </>
   );
 }
