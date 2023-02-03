@@ -5,12 +5,18 @@ import { postAPI, postAPI2 } from "services/post-service";
 const rootReducer = combineReducers({
   useReducer,
   [postAPI.reducerPath]: postAPI.reducer,
+  [postAPI2.reducerPath]: postAPI2.reducer,
 });
 
 export const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
+
     // middleware: (getDefaultMiddleware)=>getDefaultMiddleware().concat(postAPI.middleware)
+
+    // middleware: (getDefaultMiddleware) =>
+    //   getDefaultMiddleware().concat(postAPI.middleware, postAPI2.middleware),
+
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware().concat(postAPI.middleware, postAPI2.middleware),
   });

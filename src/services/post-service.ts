@@ -31,6 +31,7 @@ export const postAPI2 = createApi({
         url: "/posts",
         params: { _limit: limit },
       }),
+      // providesTags: (result) => ["Post"],
     }),
     /** <IPost, IPost> - request/ responce */
     createPost: build.mutation<IPost, IPost>({
@@ -39,8 +40,7 @@ export const postAPI2 = createApi({
         method: "POST",
         body: post,
       }),
-
-      // providesTags: result => ["Post"]
+      // invalidatesTags: ["Post"],
     }),
   }),
 });
