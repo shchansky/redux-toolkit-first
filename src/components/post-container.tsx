@@ -54,7 +54,7 @@ export const PostContainer3 = () => {
     isLoading,
     refetch,
   } = postAPI2.useFetchAllPostsQuery(
-    5
+    3
     // {pollingInterval : 1000}
   );
 

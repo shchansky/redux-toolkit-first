@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "hooks/redux";
 import { RootSate } from "store/store";
 import { userSlice } from "store/reducers/user-slice";
 import { fetchUsers } from "store/reducers/action-creators";
-import { PostContainer, PostContainer2 } from "components";
+import { PostContainer, PostContainer2, PostContainer3 } from "components";
 
 function App() {
   const { count, users, error, isLoading } = useAppSelector(
@@ -43,13 +43,15 @@ function App() {
       <div style={{ display: "flex", gap: "16px" }}>
         <div>
           <h4>PostContainer</h4> <PostContainer />
-          
         </div>
         <div>
           <h4>PostContainer2</h4>
           <PostContainer2 />
         </div>
       </div>
+
+      <hr />
+      <PostContainer3 />
     </>
   );
 }

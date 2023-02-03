@@ -19,17 +19,15 @@ export const postAPI = createApi({
   }),
 });
 
-
 export const postAPI2 = createApi({
   reducerPath: "postAPI",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:3001/posts",
+    baseUrl: "http://localhost:3001",
   }),
   endpoints: (build) => ({
     fetchAllPosts: build.query<IPost[], number>({
-      query: (limit = 2) => ({
+      query: () => ({
         url: "/posts",
-        params: { _limit: limit },
       }),
     }),
   }),
