@@ -24,6 +24,7 @@ export const postAPI2 = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:3001",
   }),
+  // tagTypes: ["Post"],
   endpoints: (build) => ({
     fetchAllPosts: build.query<IPost[], number>({
       query: (limit = 2) => ({
@@ -36,8 +37,10 @@ export const postAPI2 = createApi({
       query: (post) => ({
         url: "/posts",
         method: "POST",
-        body: post
+        body: post,
       }),
+
+      // providesTags: result => ["Post"]
     }),
   }),
 });
