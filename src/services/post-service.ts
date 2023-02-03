@@ -26,8 +26,17 @@ export const postAPI2 = createApi({
   }),
   endpoints: (build) => ({
     fetchAllPosts: build.query<IPost[], number>({
-      query: () => ({
+      query: (limit = 2) => ({
         url: "/posts",
+        params: { _limit: limit },
+      }),
+    }),
+    /** <IPost, IPost> - request/ responce */
+    createPost: build.mutation<IPost, IPost>({
+      query: (post) => ({
+        url: "/posts",
+        method: "POST",
+        body: post
       }),
     }),
   }),

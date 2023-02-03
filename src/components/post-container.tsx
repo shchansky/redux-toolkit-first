@@ -1,6 +1,7 @@
 import React from "react";
 import { postAPI, postAPI2 } from "services/post-service";
 import { PostItem } from "./post-item";
+import { IPost } from "models";
 
 export const PostContainer = () => {
   /**
@@ -54,13 +55,20 @@ export const PostContainer3 = () => {
     isLoading,
     refetch,
   } = postAPI2.useFetchAllPostsQuery(
-    3
+    33
     // {pollingInterval : 1000}
   );
 
+  const [createPost, {}] = postAPI2.useCreatePostMutation();
+
+  const handleCreate = async () => {
+    const title = prompt();
+    await createPost({ title, body: title } as IPost);
+  };
+
   return (
     <div>
-      <button onClick={() => refetch()}>Обновить</button>
+      <button onClick={() => handleCreate()}>Add new post</button>
       {isLoading && <h3>Идет загрузка...</h3>}
       {error && <h3>Ошибка при загрузке...</h3>}
       {posts &&
