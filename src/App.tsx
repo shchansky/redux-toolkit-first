@@ -41,8 +41,14 @@ function App() {
       <h3>Posts with RTK Qerry</h3>
 
       <div style={{ display: "flex", gap: "16px" }}>
-        <PostContainer />
-        <PostContainer2 />
+        <div>
+          <h4>PostContainer</h4> <PostContainer />
+          
+        </div>
+        <div>
+          <h4>PostContainer2</h4>
+          <PostContainer2 />
+        </div>
       </div>
     </>
   );
