@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "hooks/redux";
 import { RootSate } from "store/store";
 import { userSlice } from "store/reducers/user-slice";
 import { fetchUsers } from "store/reducers/action-creators";
-import { PostContainer } from "components";
+import { PostContainer, PostContainer2 } from "components";
 
 function App() {
   const { count, users, error, isLoading } = useAppSelector(
@@ -39,7 +39,11 @@ function App() {
       </div>
       <hr />
       <h3>Posts with RTK Qerry</h3>
-      <PostContainer />
+
+      <div style={{ display: "flex", gap: "16px" }}>
+        <PostContainer />
+        <PostContainer2 />
+      </div>
     </>
   );
 }
