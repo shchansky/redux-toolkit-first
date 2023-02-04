@@ -51,6 +51,7 @@ function App() {
       </div>
 
       <hr />
+      <h3>Posts mutation with RTK Qerry</h3>
       <PostContainer3 />
     </>
   );
