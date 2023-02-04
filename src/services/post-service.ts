@@ -20,18 +20,18 @@ export const postAPI = createApi({
 });
 
 export const postAPI2 = createApi({
-  reducerPath: "postAPI",
+  reducerPath: "postAPI2",
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:3001",
   }),
-  // tagTypes: ["Post"],
+  tagTypes: ["Post"],
   endpoints: (build) => ({
-    fetchAllPosts: build.query<IPost[], number>({
+    fetchAllPosts2: build.query<IPost[], number>({
       query: (limit = 2) => ({
         url: "/posts",
         params: { _limit: limit },
       }),
-      // providesTags: (result) => ["Post"],
+      providesTags: (result) => ["Post"],
     }),
     /** <IPost, IPost> - request/ responce */
     createPost: build.mutation<IPost, IPost>({
@@ -40,7 +40,7 @@ export const postAPI2 = createApi({
         method: "POST",
         body: post,
       }),
-      // invalidatesTags: ["Post"],
+      invalidatesTags: ["Post"],
     }),
   }),
 });

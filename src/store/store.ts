@@ -11,14 +11,10 @@ const rootReducer = combineReducers({
 export const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
-
-    // middleware: (getDefaultMiddleware)=>getDefaultMiddleware().concat(postAPI.middleware)
-
-    // middleware: (getDefaultMiddleware) =>
-    //   getDefaultMiddleware().concat(postAPI.middleware, postAPI2.middleware),
-
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(postAPI.middleware, postAPI2.middleware),
+      getDefaultMiddleware()
+        .concat(postAPI.middleware)
+        .concat(postAPI2.middleware),
   });
 };
 

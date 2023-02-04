@@ -54,7 +54,7 @@ export const PostContainer3 = () => {
     error,
     isLoading,
     refetch,
-  } = postAPI2.useFetchAllPostsQuery(
+  } = postAPI2.useFetchAllPosts2Query(
     33
     // {pollingInterval : 1000}
   );
