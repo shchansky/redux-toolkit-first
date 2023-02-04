@@ -4,6 +4,7 @@ import { RootSate } from "store/store";
 import { userSlice } from "store/reducers/user-slice";
 import { fetchUsers } from "store/reducers/action-creators";
 import { PostContainer, PostContainer2, PostContainer3 } from "components";
+import * as Features from "./features";
 
 function App() {
   const { count, users, error, isLoading } = useAppSelector(
@@ -51,8 +52,8 @@ function App() {
       </div>
 
       <hr />
-      <h3>Posts mutation with RTK Qerry</h3>
-      <PostContainer3 />
+
+      <Features.MutatedPostContainer />
     </>
   );
 }

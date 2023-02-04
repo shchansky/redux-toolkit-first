@@ -1,18 +1,8 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "json-server",
-      "body": "typicode"
-    },
-    {
-      "id": 2,
-      "title": "json-server",
-      "body": "typicode"
-    },
-    {
       "id": 3,
-      "title": "json-server",
+      "title": "sfdsdfsed",
       "body": "typicode"
     },
     {
@@ -94,20 +84,9 @@
       "id": 19,
       "title": "json-server",
       "body": "typicode"
-    },
-    {
-      "id": 20,
-      "title": "json-server",
-      "body": "typicode"
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
+  "comments": [],
   "profile": {
     "name": "typicode"
   }
