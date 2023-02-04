@@ -1,6 +1,6 @@
 import React from "react";
 import { postAPI, postAPI2 } from "services/post-service";
-import { PostItem } from "./post-item";
+import { PostItem, PostItem2 } from "./post-item";
 import { IPost } from "models";
 
 export const PostContainer = () => {
@@ -47,10 +47,11 @@ export const PostContainer3 = () => {
   /**
    * useFetchAllPostsQuery(5) автосгенерированные хуки на основании  описанных endpoint, 5-количество постов (передается в querry-параметры)
    * refetch - функция для обновления данных
-   * {pollingInterval : 1000} -  каждые 1000 мс будет  выполняться get-запрос (для чартов, уведомлений - своего рода аналог wedSocket)
+   * {pollingInterval : 1000} -  каждые 1000 мс будет  выполняться get-запрос (для чартов, уведомлений - своего рода аналог webSocket)
    */
   const {
     data: posts,
+
     error,
     isLoading,
     refetch,
@@ -59,11 +60,24 @@ export const PostContainer3 = () => {
     // {pollingInterval : 1000}
   );
 
-  const [createPost, {}] = postAPI2.useCreatePostMutation();
+  /** 1й элемент массива это ф-ия создания постаб 2й эдемент массива это объект с ошибкой и т.д. */
+  const [createPost, { error: createError, isLoading: createLoading }] =
+    postAPI2.useCreatePostMutation();
+
+  const [updatePost] = postAPI2.useUpdatePostMutation();
+  const [deletePost] = postAPI2.useDeletePostMutation();
 
   const handleCreate = async () => {
     const title = prompt();
     await createPost({ title, body: title } as IPost);
+  };
+
+  const handleRemove = (post: IPost) => {
+    deletePost(post);
+  };
+
+  const handleUpdate = (post: IPost) => {
+    updatePost(post);
   };
 
   return (
@@ -72,7 +86,14 @@ export const PostContainer3 = () => {
       {isLoading && <h3>Идет загрузка...</h3>}
       {error && <h3>Ошибка при загрузке...</h3>}
       {posts &&
-        posts.map((post, index) => <PostItem post={post} key={post.id} />)}
+        posts.map((post, index) => (
+          <PostItem2
+            post={post}
+            key={post.id}
+            remove={handleRemove}
+            update={handleUpdate}
+          />
+        ))}
     </div>
   );
 };
