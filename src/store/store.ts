@@ -1,9 +1,9 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import useReducer from "./reducers/user-slice";
+import stringifyContentReducer from "./reducers/user-slice";
 import { UnmutatedContentApi, MutatedContentApi } from "api/api";
 
 const rootReducer = combineReducers({
-  useReducer,
+  stringifyContentReducer,
   [UnmutatedContentApi.reducerPath]: UnmutatedContentApi.reducer,
   [MutatedContentApi.reducerPath]: MutatedContentApi.reducer,
 });

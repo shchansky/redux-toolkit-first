@@ -1,34 +1,38 @@
-import { userSlice } from "store/reducers/user-slice";
 import axios from "axios";
+//eslint-disable-next-line
+import { stringifyContentSlice } from "store/reducers/user-slice";
 import { IUser } from "models";
+//eslint-disable-next-line
 import { AppDispatch } from "store/store";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-/** Рабочий вариант с dispatch (благодаря dispatch, redux узнает какие данные и куда ему помещать в userSlice)*/
-// export const fetchUsers = () => async (dispatch: AppDispatch) => {
+/** Рабочий вариант с dispatch (благодаря dispatch, redux узнает какие данные и куда ему помещать в stringifyContentSlice)*/
+// export const loadStringifyContent = () => async (dispatch: AppDispatch) => {
 //   try {
-//     dispatch(userSlice.actions.usersFetching());
+//     dispatch(stringifyContentSlice.actions.usersFetching());
 
 //     const response = await axios.get<IUser[]>(
 //       "https://jsonplaceholder.typicode.com/users"
 //     );
 
-//     dispatch(userSlice.actions.usersFetchingSuccess(response.data));
+//     dispatch(stringifyContentSlice.actions.usersFetchingSuccess(response.data));
 //   } catch (error) {
 //     if (error instanceof Error) {
-//       dispatch(userSlice.actions.usersFetchingError(error.message));
+//       dispatch(stringifyContentSlice.actions.usersFetchingError(error.message));
 //     } else {
-//       dispatch(userSlice.actions.usersFetchingError("unknow type of error"));
+//       dispatch(stringifyContentSlice.actions.usersFetchingError("unknow type of error"));
 //     }
 //   }
 // };
 
-/** Альтернативный рабочий вариант без dispatch с реализацией через поле extraReducers в userSlice*/
-export const fetchUsers = createAsyncThunk(
+/** Альтернативный рабочий вариант без dispatch с реализацией через поле extraReducers в stringifyContentSlice*/
+export const loadStringifyContent = createAsyncThunk(
   "user/fetchAll",
   async (_, thunkApi) => {
     try {
-      const response = await axios.get<IUser[]>("https://jsonplaceholder.typicode.com/users");
+      const response = await axios.get<IUser[]>(
+        "https://jsonplaceholder.typicode.com/users"
+      );
       return response.data;
     } catch (err) {
       alert(err);

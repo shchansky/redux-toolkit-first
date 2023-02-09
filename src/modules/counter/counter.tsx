@@ -1,16 +1,16 @@
 import React from "react";
 import { useAppDispatch, useAppSelector } from "hooks/redux";
 import { RootSate } from "store/store";
-import { userSlice } from "store/reducers/user-slice";
-import { fetchUsers } from "store/reducers/action-creators";
+import { stringifyContentSlice } from "store/reducers/user-slice";
+import { loadStringifyContent } from "store/reducers/action-creators";
 
 export const Counter = () => {
-  const { count } = useAppSelector((state: RootSate) => state.useReducer);
-  const { increment } = userSlice.actions;
+  const { count } = useAppSelector((state: RootSate) => state.stringifyContentReducer);
+  const { increment } = stringifyContentSlice.actions;
   const dispatch = useAppDispatch();
 
   React.useEffect(() => {
-    dispatch(fetchUsers());
+    dispatch(loadStringifyContent());
   }, [dispatch]);
 
   return (

@@ -1,4 +1,4 @@
-import { fetchUsers } from "store/reducers/action-creators";
+import { loadStringifyContent } from "store/reducers/action-creators";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { IUser } from "models";
 
@@ -16,7 +16,7 @@ export const initialState: UserState = {
   count: 0,
 };
 
-export const userSlice = createSlice({
+export const stringifyContentSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
@@ -24,7 +24,7 @@ export const userSlice = createSlice({
       state.count += action.payload;
     },
 
-    /** Альтернатива полю extraReducers(необходимо экшен fetchUsers оборачивать dispatch) */
+    /** Альтернатива полю extraReducers(необходимо экшен loadStringifyContent оборачивать dispatch) */
     // usersFetching(state) {
     //   state.isLoading = true;
     // },
@@ -41,23 +41,29 @@ export const userSlice = createSlice({
     // },
   },
 
-  /** экшен fetchUsers обернут createAsyncThunk  */
+  /** экшен loadStringifyContent обернут createAsyncThunk  */
   extraReducers: {
-    [fetchUsers.pending.type]: (state) => {
+    [loadStringifyContent.pending.type]: (state) => {
       state.isLoading = true;
     },
 
-    [fetchUsers.fulfilled.type]: (state, action: PayloadAction<IUser[]>) => {
+    [loadStringifyContent.fulfilled.type]: (
+      state,
+      action: PayloadAction<IUser[]>
+    ) => {
       state.isLoading = false;
       state.error = "";
       state.users = action.payload;
     },
 
-    [fetchUsers.rejected.type]: (state, action: PayloadAction<string>) => {
+    [loadStringifyContent.rejected.type]: (
+      state,
+      action: PayloadAction<string>
+    ) => {
       state.isLoading = false;
       state.error = action.payload;
     },
   },
 });
 
-export default userSlice.reducer;
+export default stringifyContentSlice.reducer;

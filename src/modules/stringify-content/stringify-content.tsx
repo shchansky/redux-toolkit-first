@@ -1,17 +1,17 @@
 import React from "react";
 import { useAppDispatch, useAppSelector } from "hooks/redux";
 import { RootSate } from "store/store";
-import { fetchUsers } from "store/reducers/action-creators";
+import { loadStringifyContent } from "store/reducers/action-creators";
 
 export const StringifyContent = () => {
   const { users, error, isLoading } = useAppSelector(
-    (state: RootSate) => state.useReducer
+    (state: RootSate) => state.stringifyContentReducer
   );
 
   const dispatch = useAppDispatch();
 
   React.useEffect(() => {
-    dispatch(fetchUsers());
+    dispatch(loadStringifyContent());
   }, [dispatch]);
 
   return (
