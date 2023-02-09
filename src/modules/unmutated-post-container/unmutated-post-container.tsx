@@ -1,7 +1,5 @@
-import React from "react";
 import { jsonPlaceholderApi } from "api";
-import { PostItem, PostItem2 } from "../../components/post-item";
-import { IPost } from "models";
+import { PostItem } from "../../components/post-item";
 
 export const UnmutatedPostContainer = () => {
   /**

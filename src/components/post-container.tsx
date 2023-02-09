@@ -63,6 +63,7 @@ export const PostContainer3 = () => {
   );
 
   /** 1й элемент массива это ф-ия создания постаб 2й эдемент массива это объект с ошибкой и т.д. */
+  //eslint-disable-next-line
   const [createPost, { error: createError, isLoading: createLoading }] =
     dbJsonApi.useCreatePostMutation();
 

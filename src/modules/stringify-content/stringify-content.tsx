@@ -1,7 +1,6 @@
 import React from "react";
 import { useAppDispatch, useAppSelector } from "hooks/redux";
 import { RootSate } from "store/store";
-import { userSlice } from "store/reducers/user-slice";
 import { fetchUsers } from "store/reducers/action-creators";
 import { PostContainer, PostContainer2 } from "components";
 
@@ -10,7 +9,6 @@ export const StringifyContent = () => {
     (state: RootSate) => state.useReducer
   );
 
-  const { increment } = userSlice.actions;
   const dispatch = useAppDispatch();
 
   React.useEffect(() => {

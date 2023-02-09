@@ -1,4 +1,3 @@
-import React from "react";
 import { dbJsonApi } from "api/api";
 import { PostItem2 } from "../../components/post-item";
 import { IPost } from "models";
@@ -14,6 +13,7 @@ export const MutatedPostContainer = () => {
 
     error,
     isLoading,
+    //eslint-disable-next-line
     refetch,
   } = dbJsonApi.useFetchAllPosts2Query(
     33
@@ -21,6 +21,7 @@ export const MutatedPostContainer = () => {
   );
 
   /** 1й элемент массива это ф-ия создания поста, 2й эдемент массива это объект с ошибкой и т.д. */
+  //eslint-disable-next-line
   const [createPost, { error: createError, isLoading: createLoading }] =
     dbJsonApi.useCreatePostMutation();
 
