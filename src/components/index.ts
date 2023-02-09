@@ -1,1 +1,1 @@
-export * from "./post-container"
+export * from "./post-item";
