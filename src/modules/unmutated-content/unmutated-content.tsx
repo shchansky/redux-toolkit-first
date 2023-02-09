@@ -1,4 +1,4 @@
-import { jsonPlaceholderApi } from "api";
+import { UnmutatedContentApi } from "api";
 import { PostItem } from "../../components/post-item";
 
 export const UnmutatedContent = () => {
@@ -12,7 +12,7 @@ export const UnmutatedContent = () => {
     error,
     isLoading,
     refetch,
-  } = jsonPlaceholderApi.useFetchAllPostsQuery(
+  } = UnmutatedContentApi.useFetchAllPostsQuery(
     5
     // {pollingInterval : 1000}
   );

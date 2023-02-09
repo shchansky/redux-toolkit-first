@@ -1,11 +1,11 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import useReducer from "./reducers/user-slice";
-import { jsonPlaceholderApi, dbJsonApi } from "api/api";
+import { UnmutatedContentApi, MutatedContentApi } from "api/api";
 
 const rootReducer = combineReducers({
   useReducer,
-  [jsonPlaceholderApi.reducerPath]: jsonPlaceholderApi.reducer,
-  [dbJsonApi.reducerPath]: dbJsonApi.reducer,
+  [UnmutatedContentApi.reducerPath]: UnmutatedContentApi.reducer,
+  [MutatedContentApi.reducerPath]: MutatedContentApi.reducer,
 });
 
 export const setupStore = () => {
@@ -13,8 +13,8 @@ export const setupStore = () => {
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware()
-        .concat(jsonPlaceholderApi.middleware)
-        .concat(dbJsonApi.middleware),
+        .concat(UnmutatedContentApi.middleware)
+        .concat(MutatedContentApi.middleware),
   });
 };
 

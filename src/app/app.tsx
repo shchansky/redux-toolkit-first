@@ -6,11 +6,9 @@ export function App() {
       <Features.Counter />
       <hr />
       <Features.StringifyContent />
-
       <hr />
-
       <Features.UnmutatedContent />
-
+      <hr />
       <Features.MutatedContent />
     </>
   );

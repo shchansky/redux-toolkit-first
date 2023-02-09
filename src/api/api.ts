@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import { IPost } from "../models";
 
-export const jsonPlaceholderApi = createApi({
-  reducerPath: "jsonPlaceholderApi",
+export const UnmutatedContentApi = createApi({
+  reducerPath: "UnmutatedContentApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://jsonplaceholder.typicode.com",
   }),
@@ -19,8 +19,8 @@ export const jsonPlaceholderApi = createApi({
   }),
 });
 
-export const dbJsonApi = createApi({
-  reducerPath: "dbJsonApi",
+export const MutatedContentApi = createApi({
+  reducerPath: "MutatedContentApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:3001",
   }),
