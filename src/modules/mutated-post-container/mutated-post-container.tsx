@@ -1,6 +1,6 @@
 import React from "react";
-import {  postAPI2 } from "api/api";
-import {  PostItem2 } from "../../components/post-item";
+import { dbJsonApi } from "api/api";
+import { PostItem2 } from "../../components/post-item";
 import { IPost } from "models";
 
 export const MutatedPostContainer = () => {
@@ -15,17 +15,17 @@ export const MutatedPostContainer = () => {
     error,
     isLoading,
     refetch,
-  } = postAPI2.useFetchAllPosts2Query(
+  } = dbJsonApi.useFetchAllPosts2Query(
     33
     // {pollingInterval : 1000}
   );
 
   /** 1й элемент массива это ф-ия создания поста, 2й эдемент массива это объект с ошибкой и т.д. */
   const [createPost, { error: createError, isLoading: createLoading }] =
-    postAPI2.useCreatePostMutation();
+    dbJsonApi.useCreatePostMutation();
 
-  const [updatePost] = postAPI2.useUpdatePostMutation();
-  const [deletePost] = postAPI2.useDeletePostMutation();
+  const [updatePost] = dbJsonApi.useUpdatePostMutation();
+  const [deletePost] = dbJsonApi.useDeletePostMutation();
 
   const handleCreate = async () => {
     const title = prompt();

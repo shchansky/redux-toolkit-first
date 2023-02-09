@@ -1,5 +1,5 @@
 import React from "react";
-import { postAPI, postAPI2 } from "api/api";
+import { jsonPlaceholderApi, dbJsonApi } from "api/api";
 import { PostItem, PostItem2 } from "./post-item";
 import { IPost } from "models";
 
@@ -14,7 +14,7 @@ export const PostContainer = () => {
     error,
     isLoading,
     refetch,
-  } = postAPI.useFetchAllPostsQuery(
+  } = jsonPlaceholderApi.useFetchAllPostsQuery(
     5
     // {pollingInterval : 1000}
   );
@@ -32,7 +32,11 @@ export const PostContainer = () => {
 
 /** Код идентичен PostContainer - посмотри вкладку Network- запросы не будут дублироваться, данные будут закэшированы RTK Querry*/
 export const PostContainer2 = () => {
-  const { data: posts, error, isLoading } = postAPI.useFetchAllPostsQuery(5);
+  const {
+    data: posts,
+    error,
+    isLoading,
+  } = jsonPlaceholderApi.useFetchAllPostsQuery(5);
 
   return (
     <div>
@@ -53,17 +57,17 @@ export const PostContainer3 = () => {
     data: posts,
     error,
     isLoading,
-  } = postAPI2.useFetchAllPosts2Query(
+  } = dbJsonApi.useFetchAllPosts2Query(
     33
     // {pollingInterval : 1000}
   );
 
   /** 1й элемент массива это ф-ия создания постаб 2й эдемент массива это объект с ошибкой и т.д. */
   const [createPost, { error: createError, isLoading: createLoading }] =
-    postAPI2.useCreatePostMutation();
+    dbJsonApi.useCreatePostMutation();
 
-  const [updatePost] = postAPI2.useUpdatePostMutation();
-  const [deletePost] = postAPI2.useDeletePostMutation();
+  const [updatePost] = dbJsonApi.useUpdatePostMutation();
+  const [deletePost] = dbJsonApi.useDeletePostMutation();
 
   const handleCreate = async () => {
     const title = prompt();

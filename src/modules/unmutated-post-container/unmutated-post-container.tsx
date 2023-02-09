@@ -1,5 +1,5 @@
 import React from "react";
-import { postAPI } from "api/api";
+import { jsonPlaceholderApi } from "api/api";
 import { PostItem, PostItem2 } from "../../components/post-item";
 import { IPost } from "models";
 
@@ -14,7 +14,7 @@ export const UnmutatedPostContainer = () => {
     error,
     isLoading,
     refetch,
-  } = postAPI.useFetchAllPostsQuery(
+  } = jsonPlaceholderApi.useFetchAllPostsQuery(
     5
     // {pollingInterval : 1000}
   );

@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import { IPost } from "../models";
 
-export const postAPI = createApi({
-  reducerPath: "postAPI",
+export const jsonPlaceholderApi = createApi({
+  reducerPath: "jsonPlaceholderApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://jsonplaceholder.typicode.com",
   }),
@@ -19,8 +19,8 @@ export const postAPI = createApi({
   }),
 });
 
-export const postAPI2 = createApi({
-  reducerPath: "postAPI2",
+export const dbJsonApi = createApi({
+  reducerPath: "dbJsonApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:3001",
   }),
@@ -52,7 +52,6 @@ export const postAPI2 = createApi({
       invalidatesTags: ["Post"],
     }),
 
-
     deletePost: build.mutation<IPost, IPost>({
       query: (post) => ({
         url: `/posts/${post.id}`,
@@ -60,7 +59,5 @@ export const postAPI2 = createApi({
       }),
       invalidatesTags: ["Post"],
     }),
-
-
   }),
 });

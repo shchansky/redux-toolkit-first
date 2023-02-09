@@ -1,11 +1,11 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import useReducer from "./reducers/user-slice";
-import { postAPI, postAPI2 } from "api/api";
+import { jsonPlaceholderApi, dbJsonApi } from "api/api";
 
 const rootReducer = combineReducers({
   useReducer,
-  [postAPI.reducerPath]: postAPI.reducer,
-  [postAPI2.reducerPath]: postAPI2.reducer,
+  [jsonPlaceholderApi.reducerPath]: jsonPlaceholderApi.reducer,
+  [dbJsonApi.reducerPath]: dbJsonApi.reducer,
 });
 
 export const setupStore = () => {
@@ -13,8 +13,8 @@ export const setupStore = () => {
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware()
-        .concat(postAPI.middleware)
-        .concat(postAPI2.middleware),
+        .concat(jsonPlaceholderApi.middleware)
+        .concat(dbJsonApi.middleware),
   });
 };
 
