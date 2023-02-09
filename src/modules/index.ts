@@ -1,4 +1,4 @@
-export * from "./unmutated-post-container";
-export * from "./mutated-post-container";
+export * from "./unmutated-content";
+export * from "./mutated-content";
 export * from "./counter";
 export * from "./stringify-content";

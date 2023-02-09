@@ -1,7 +1,7 @@
 import { jsonPlaceholderApi } from "api";
 import { PostItem } from "../../components/post-item";
 
-export const UnmutatedPostContainer = () => {
+export const UnmutatedContent = () => {
   /**
    * useFetchAllPostsQuery(5) автосгенерированные хуки на основании  описанных endpoint, 5-количество постов (передается в querry-параметры)
    * refetch - функция для обновления данных

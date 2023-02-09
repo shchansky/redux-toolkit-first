@@ -9,7 +9,7 @@ export function App() {
 
       <hr />
 
-      <Features.MutatedPostContainer />
+      <Features.MutatedContent />
     </>
   );
 }

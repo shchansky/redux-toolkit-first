@@ -2,7 +2,7 @@ import { dbJsonApi } from "api/api";
 import { PostItem2 } from "../../components/post-item";
 import { IPost } from "models";
 
-export const MutatedPostContainer = () => {
+export const MutatedContent = () => {
   /**
    * useFetchAllPostsQuery(33) автосгенерированные хуки на основании  описанных endpoint, 5-количество постов (передается в querry-параметры)
    * refetch - функция для обновления данных
