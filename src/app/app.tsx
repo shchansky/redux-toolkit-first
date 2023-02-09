@@ -4,7 +4,7 @@ export function App() {
   return (
     <>
       <Features.Counter />
-
+      <hr />
       <Features.StringifyContent />
 
       <hr />
