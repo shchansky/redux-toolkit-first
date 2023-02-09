@@ -1,11 +1,6 @@
 {
   "posts": [
     {
-      "id": 4,
-      "title": "111",
-      "body": "typicode"
-    },
-    {
       "id": 5,
       "title": "json-server",
       "body": "typicode"
