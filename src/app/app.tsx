@@ -4,7 +4,7 @@ import { RootSate } from "../store/store";
 import { userSlice } from "../store/reducers/user-slice";
 import { fetchUsers } from "../store/reducers/action-creators";
 import { PostContainer, PostContainer2, PostContainer3 } from "../components";
-import * as Features from "../features";
+import * as Features from "../modules";
 
 export function App() {
   const { count, users, error, isLoading } = useAppSelector(
