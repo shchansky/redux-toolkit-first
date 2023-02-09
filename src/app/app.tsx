@@ -20,16 +20,8 @@ export function App() {
 
   return (
     <>
-      <div>
-        <h1>{count}</h1>
-        <button
-          onClick={() => {
-            dispatch(increment(10));
-          }}
-        >
-          Increment
-        </button>
-      </div>
+      <Features.Counter />
+
       <hr />
       <h3>Users with no thunk</h3>
       <div>
@@ -57,5 +49,3 @@ export function App() {
     </>
   );
 }
-
-
