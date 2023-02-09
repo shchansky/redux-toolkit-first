@@ -9,6 +9,8 @@ export function App() {
 
       <hr />
 
+      <Features.UnmutatedContent />
+
       <Features.MutatedContent />
     </>
   );

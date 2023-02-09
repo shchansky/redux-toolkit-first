@@ -19,6 +19,7 @@ export const UnmutatedContent = () => {
 
   return (
     <div>
+      <h3>UnmutatedContent - with RTK Qerry</h3>
       <div>
         <button onClick={() => refetch()}>Обновить</button>
         {isLoading && <h3>Идет загрузка...</h3>}
@@ -28,3 +29,4 @@ export const UnmutatedContent = () => {
     </div>
   );
 };
+//

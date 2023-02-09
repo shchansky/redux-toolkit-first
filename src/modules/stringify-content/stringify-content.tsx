@@ -17,25 +17,12 @@ export const StringifyContent = () => {
 
   return (
     <div>
-      <hr />
-      <h3>Users with no thunk</h3>
+      <h3>StringifyContent - with thunk</h3>
       <div>
         {isLoading ? "Идет загрузка..." : JSON.stringify(users, null, 2)}
       </div>
       <div style={{ paddingTop: "30px" }}>
         {error.length ? error : "Ошибки нет"}
-      </div>
-      <hr />
-      <h3>Posts with RTK Qerry</h3>
-
-      <div style={{ display: "flex", gap: "16px" }}>
-        <div>
-          <h4>PostContainer</h4> <PostContainer />
-        </div>
-        <div>
-          <h4>PostContainer2</h4>
-          <PostContainer2 />
-        </div>
       </div>
     </div>
   );

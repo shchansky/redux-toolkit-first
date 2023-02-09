@@ -43,7 +43,7 @@ export const MutatedContent = () => {
 
   return (
     <div>
-      <h3>Posts mutation with RTK Qerry</h3>
+      <h3>MutatedContent -with RTK Qerry</h3>
       <div>
         <button onClick={() => handleCreate()}>Add new post</button>
         {isLoading && <h3>Идет загрузка...</h3>}
