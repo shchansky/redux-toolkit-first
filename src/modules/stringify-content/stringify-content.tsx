@@ -2,7 +2,6 @@ import React from "react";
 import { useAppDispatch, useAppSelector } from "hooks/redux";
 import { RootSate } from "store/store";
 import { fetchUsers } from "store/reducers/action-creators";
-import { PostContainer, PostContainer2 } from "components";
 
 export const StringifyContent = () => {
   const { users, error, isLoading } = useAppSelector(
